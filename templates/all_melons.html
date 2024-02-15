@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="melon-list">
+      {% extends 'base.html'%} {% block body %}
+      <div class="container">
+        <div class="row">
+          {% for melon in melon_list %}
+          <div class="col">
+            <img class="melon-image" src="{{ melon.image_url }}" />
+            <h2>
+              <a
+                href="{{ url_for('one_melon_route', melon_id=melon.melon_id) }}"
+              >
+                {{ melon.common_name }}
+              </a>
+            </h2>
+            {{ melon.print_str() }}
+          </div>
+          {% endfor %} {% endblock %}
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

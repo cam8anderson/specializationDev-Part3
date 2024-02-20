@@ -10,16 +10,21 @@
       <div class="container">
         <div class="row">
           {% for melon in melon_list %}
-          <div class="col">
-            <img class="melon-image" src="{{ melon.image_url }}" />
-            <h2>
-              <a
-                href="{{ url_for('one_melon_route', melon_id=melon.melon_id) }}"
-              >
-                {{ melon.common_name }}
-              </a>
-            </h2>
-            {{ melon.print_str() }}
+          <div class="col-3 d-flex">
+            <div class="card">
+              <img
+                class="card-img-top melon-image"
+                src="{{ melon.image_url }}"
+              />
+              <h2>
+                <a
+                  href="{{ url_for('one_melon_route', melon_id=melon.melon_id) }}"
+                >
+                  {{ melon.common_name }}
+                </a>
+              </h2>
+              {{ melon.print_str() }}
+            </div>
           </div>
           {% endfor %} {% endblock %}
         </div>
